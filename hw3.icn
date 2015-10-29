@@ -43,7 +43,7 @@ end
 
 procedure loadDict() #Open the linux dictionary file and insert its contents into a table.
 	T := table(0)
-	dict := open("words") 
+	dict := open("/usr/share/dict/words") 
 	while line := read(dict) do {
 		insert(T,line,0) #Insert into the table.
 	}
