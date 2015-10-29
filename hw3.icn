@@ -1,3 +1,8 @@
+#Igor Lopes 
+#CS210 - Programming Languages
+#October 29, 2015
+#Correction of the HW#3
+
 procedure wordsinfile(s) #Gets all words in the file.
     f := open(s)	#Open the file.
     L := []		#Creates a new list.
