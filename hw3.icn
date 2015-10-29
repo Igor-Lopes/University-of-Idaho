@@ -1,14 +1,49 @@
-#Homework #3
-#CS210 - Programming Languages - Mr. Clinton Jeffery
-# Igor Lopes October1, 2015.
-
-
 procedure wordsinfile(s)
     f := open(s)
     L := []
-    while line := read(f) do L |||:= wordsinline(line)
+    T := table(0)
+    while line := read(f) do {
+    	L:= wordsinline(line)
+	every i:= 1 to *L do{
+		if member(T, L[i]) then {
+			T[L[i]] +:= 1
+		} else {
+			if *L[i] ~= *cset(L[i])then {
+				insert(T,L[i],1)
+			}
+		} 
+	}
+    }
     close(f)
-    return sort(L)
+
+return T
+end
+
+procedure markWords(T)
+	words := loadDict()
+	L := []
+	every i:=key(T) do {
+       	put(L,i)
+    	}
+
+	L := sort(L)
+	every i:= 1 to *L do {
+		if member(words,L[i]) then {
+			write(L[i], " ", T[L[i]])
+		} else {
+			write(L[i], " ", T[L[i]], " *")
+		}
+	}
+end
+
+procedure loadDict()
+	T := table(0)
+	dict := open("words")
+	while line := read(dict) do {
+		insert(T,line,0)
+	}
+	close(dict)
+	return T
 end
 
 procedure wordsinline(s)
@@ -18,96 +53,8 @@ procedure wordsinline(s)
    return L
 end
 
-procedure removeOne(L) #Remove strings with one character
-
-size := *L
-
-every i := 1 to size do {
-        num := *L[i]
-        if num = 1 then{
-                delete(L,i)
-                removeOne(L)
-        }
-}
+procedure main (args)
+	if(*args < 1) then stop ("ERROR ! File not passed as argument !")
+	T := wordsinfile(args[1])
+	markWords(T)	
 end
-
-procedure removeIfNotRep(L) #Remove strings that don't have repeated characters
-
-size := *L
-
-every i := 1 to size do {
-        curr := L[i]
-        if *curr ~= *cset(curr) then{
-                #delete(L,i)
-                #removeIfNotRep(L)
-        } else {
-                delete(L,i)
-                removeIfNotRep(L)
-        }
-
-}
-return sort(L)
-endprocedure getCount(L, s) # returns the count of the word in the list
-
-size := *L
-count := 0
-every i := 1 to size do{
-        if(L[i] == s) then count := count + 1
-}
-return count
-end
-
-procedure checkIfContains(l, s) #Check if a word is in the list, so it is not printed several times
-
-size := *l
-contains := "False"
-
-every i := 1 to size do{
-        if l[i] == s then contains := "True"
-
-}
-return contains
-end
-procedure printList(L)  #Print list with the number of repetitions of each string in the file
-
-size := *L
-
-printed := []
-
-
-every i := 1 to size do{
-        curr := L[i]
-        count:= getCount(L, curr)
-        contains := checkIfContains(printed, curr)
-
-        if contains == "False" then {
-                write(curr," ", count)
-                put(printed, curr)
-        }
-	count := 0
-}
-end
-
-procedure main(args)
-
-write ("----------------------------")
-write ("File read:")
-write (args[1])
-write ("----------------------------")
-write ("Words with repeated characters in the file: ", args[1] )
-
-L := wordsinfile(args[1])
-
-removeOne(L)
-
-removeIfNotRep(L)
-
-printList(L)
-
-write ("----------------------------")
-
-end
-
-
-
-
