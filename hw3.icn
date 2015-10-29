@@ -1,0 +1,60 @@
+procedure wordsinfile(s)
+    f := open(s)
+    L := []
+    T := table(0)
+    while line := read(f) do {
+    	L:= wordsinline(line)
+	every i:= 1 to *L do{
+		if member(T, L[i]) then {
+			T[L[i]] +:= 1
+		} else {
+			if *L[i] ~= *cset(L[i])then {
+				insert(T,L[i],1)
+			}
+		} 
+	}
+    }
+    close(f)
+
+return T
+end
+
+procedure markWords(T)
+	words := loadDict()
+	L := []
+	every i:=key(T) do {
+       	put(L,i)
+    	}
+
+	L := sort(L)
+	every i:= 1 to *L do {
+		if member(words,L[i]) then {
+			write(L[i], " ", T[L[i]])
+		} else {
+			write(L[i], " ", T[L[i]], " *")
+		}
+	}
+end
+
+procedure loadDict()
+	T := table(0)
+	dict := open("words")
+	while line := read(dict) do {
+		insert(T,line,0)
+	}
+	close(dict)
+	return T
+end
+
+procedure wordsinline(s)
+   alnum := &letters ++ &digits
+   L := []
+   s ? while tab(upto(alnum)) do put(L, map(tab(many(alnum))))
+   return L
+end
+
+procedure main (args)
+	if(*args < 1) then stop ("ERROR ! File not passed as argument !")
+	T := wordsinfile(args[1])
+	markWords(T)	
+end
