@@ -10,22 +10,25 @@
 
 int array[10];
 
-void setArray(){
-        for(int i = 0; i < 10; i ++){
+void setArrayInsert(){
+	int i;
+        for(i = 0; i < 10; i ++){
                 array[i] = rand() % 1000 + 1;
         }
 }
 
-void printArray(){
-         for(int i = 0; i < 10; i ++){
+void printArrayInsert(){
+	int i;
+	printf("----------InsertSort--------------\n");
+         for(i = 0; i < 10; i ++){
                 printf("%d\n", array[i]);
         }
         printf("----------------------------------\n");
 }
 
 void insertSort(){
-        int j, aux;
-        for(int i = 1; i < 10; i++){
+        int i, j, aux;
+        for(i = 1; i < 10; i++){
                 j = i;
                 while(j > 0 && array[j-1] > array[j]){
                         aux = array[j];
@@ -35,14 +38,4 @@ void insertSort(){
                 }
         }
 }
-
-int main (){
-
-setArray();
-printArray();
-insertSort();
-printArray();
-return 0;
-}
-
 

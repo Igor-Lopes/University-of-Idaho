@@ -10,22 +10,20 @@
 
 int array[10];
 
-void setArray(){
-        for(int i = 0; i < 10; i ++){
+void setArrayQuick(){
+	int i;
+        for(i = 0; i < 10; i ++){
                 array[i] = rand() % 1000 + 1;
         }
 }
 
-void printArray(){
-         for(int i = 0; i < 10; i ++){
+void printArrayQuick(){
+	int i;
+	printf("---------QuickSort----------------\n");
+         for(i = 0; i < 10; i ++){
                 printf("%d\n", array[i]);
         }
         printf("----------------------------------\n");
-}
-
-void sort(){
-        quickSort(array, 0, 9);
-
 }
 
 void swapElements(int array[], int leftIndex, int rightIndex){
@@ -33,8 +31,9 @@ void swapElements(int array[], int leftIndex, int rightIndex){
                 int tmp_right = array[rightIndex];
                 array[leftIndex] = tmp_right;
                 array[rightIndex] = tmp_left;
-        }
-void quickSort(int a[], int left, int right) { //Quick Sort Algorithm
+}
+
+void sort(int a[], int left, int right) { //Quick Sort Algorithm
 
                 int left_Id, right_Id, x;
                 left_Id = left;
@@ -55,21 +54,14 @@ void quickSort(int a[], int left, int right) { //Quick Sort Algorithm
                         }
                 }
                 if(right_Id > left){
-                        quickSort(a, left, right_Id);
+                        sort(a, left, right_Id);
                 }
                 if(left_Id < right){
-                        quickSort(a, left_Id, right);
+                        sort(a, left_Id, right);
                 }
 }
 
-int main(){
-
-setArray();
-printArray();
-sort();
-printArray();
-
-
-return 0;
+void quickSort(){
+        sort(array, 0, 9);
 }
 
