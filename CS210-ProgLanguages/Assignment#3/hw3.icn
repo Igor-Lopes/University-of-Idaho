@@ -1,0 +1,65 @@
+#Igor Lopes 
+#CS210 - Programming Languages
+#October 29, 2015
+#Correction of the HW#3
+
+procedure wordsinfile(s) #Gets all words in the file.
+    f := open(s)	#Open the file.
+    L := []		#Creates a new list.
+    T := table(0)	#Creates a new table.
+    while line := read(f) do {	#Reads the file line per line.
+    	L:= wordsinline(line)	#Gets a list with words on the current line.
+	every i:= 1 to *L do{	#Walks the list.
+		if member(T, L[i]) then { #If the current element already exists, it increments the word counter.
+			T[L[i]] +:= 1	
+		} else {
+			if *L[i] ~= *cset(L[i])then {	#If the word has at least one repeated character then it is inserted into the table.
+				insert(T,L[i],1)
+			}
+		} 
+	}
+    }
+    close(f) #Close the file
+
+return T #Returns the table
+end
+
+procedure markWords(T) #Print output with word counter and "*" if misspelled.
+	words := loadDict()	#Calls function that returns a table with all words.
+	L := []	#Creates an empty list.
+	every i:=key(T) do {	#Walks the table. Indexes are keys.
+       	put(L,i)	#Puts the key in a list.
+    	}
+
+	L := sort(L)	#Sorts the List
+	every i:= 1 to *L do {
+		if member(words,L[i]) then {	#If the current word is a member of the table, it means the word is spelled correctly.
+			write(L[i], " ", T[L[i]]) #Prints the word with the counter.
+		} else {
+			write(L[i], " ", T[L[i]], " *")	#Adds "*" if misspelled.
+		}
+	}
+end
+
+procedure loadDict() #Open the linux dictionary file and insert its contents into a table.
+	T := table(0)
+	dict := open("/usr/share/dict/words") 
+	while line := read(dict) do {
+		insert(T,line,0) #Insert into the table.
+	}
+	close(dict)
+	return T
+end
+
+procedure wordsinline(s)
+   alnum := &letters ++ &digits #Select letters and digits
+   L := []
+   s ? while tab(upto(alnum)) do put(L, map(tab(many(alnum))))	#Puts the words in a list.
+   return L
+end
+
+procedure main (args)
+	if(*args < 1) then stop ("ERROR ! File not passed as argument !")
+	T := wordsinfile(args[1]) #Gets the table with words.
+	markWords(T)
+end
