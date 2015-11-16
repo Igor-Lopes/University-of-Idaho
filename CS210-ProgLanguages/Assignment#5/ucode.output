@@ -1,0 +1,340 @@
+Terminals unused in grammar
+
+   VERSIONSTAMP
+   UCODESTAMP
+   DECCONST
+   COMMA
+   OCTCONST
+   IDENTIFIER
+   CONTROL_L
+   REALCONST
+   FILENAME
+   LABEL
+   ANY
+   Op_Asgn
+   Op_Bang
+   Op_Cat
+   Op_Compl
+   Op_Diff
+   Op_Div
+   Op_Eqv
+   Op_Inter
+   Op_Lconcat
+   Op_Lexeq
+   Op_Lexge
+   Op_Lexgt
+   Op_Lexle
+   Op_Lexlt
+   Op_Lexne
+   Op_Minus
+   Op_Mod
+   Op_Mult
+   Op_Neg
+   Op_Neqv
+   Op_Nonnull
+   Op_Null
+   Op_Number
+   Op_Numeq
+   Op_Numge
+   Op_Numgt
+   Op_Numle
+   Op_Numlt
+   Op_Numne
+   Op_Plus
+   Op_Power
+   Op_Random
+   Op_Rasgn
+   Op_Rcv
+   Op_RcvBk
+   Op_Refresh
+   Op_Rswap
+   Op_Sect
+   Op_Snd
+   Op_SndBk
+   Op_Size
+   Op_Subsc
+   Op_Swap
+   Op_Tabmat
+   Op_Toby
+   Op_Unions
+   Op_Value
+   Op_Bscan
+   Op_Ccase
+   Op_Chfail
+   Op_Coact
+   Op_Cofail
+   Op_Coret
+   Op_Create
+   Op_Cset
+   Op_Dup
+   Op_Efail
+   Op_EInit
+   Op_Eret
+   Op_Escan
+   Op_Esusp
+   Op_Field
+   Op_Goto
+   Op_Init
+   Op_Int
+   Op_Invoke
+   Op_Keywd
+   Op_Limit
+   Op_Line
+   Op_Llist
+   Op_Lsusp
+   Op_Mark
+   Op_Pfail
+   Op_Pnull
+   Op_Pop
+   Op_Pret
+   Op_Psusp
+   Op_Push1
+   Op_Pushn1
+   Op_Real
+   Op_Sdup
+   Op_Str
+   Op_Unmark
+   Op_Var
+   Op_Arg
+   Op_Static
+   Op_Local
+   Op_Global
+   Op_Mark0
+   Op_Quit
+   Op_FQuit
+   Op_Tally
+   Op_Apply
+   Op_Acset
+   Op_Areal
+   Op_Astr
+   Op_Aglobal
+   Op_Astatic
+   Op_Agoto
+   Op_Amark
+   Op_Noop
+   Op_Colm
+   Op_Proc
+   Op_Declend
+   Op_End
+   Op_Link
+   Op_Con
+   Op_Filen
+   Op_Record
+   Op_Impl
+   Op_Error
+   Op_Trace
+   Op_Lab
+   Op_Invocable
+   Op_Copyd
+   Op_Trapret
+   Op_Trapfail
+   Op_Synt
+   Op_Uid
+
+
+Grammar
+
+    0 $accept: statementlist $end
+
+    1 statementlist: statement statementlist
+    2              | statement
+
+    3 statement: Op_Version
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+VERSIONSTAMP (258)
+UCODESTAMP (259)
+DECCONST (260)
+COMMA (261)
+OCTCONST (262)
+IDENTIFIER (263)
+CONTROL_L (264)
+REALCONST (265)
+FILENAME (266)
+LABEL (267)
+ANY (268)
+Op_Asgn (269)
+Op_Bang (270)
+Op_Cat (271)
+Op_Compl (272)
+Op_Diff (273)
+Op_Div (274)
+Op_Eqv (275)
+Op_Inter (276)
+Op_Lconcat (277)
+Op_Lexeq (278)
+Op_Lexge (279)
+Op_Lexgt (280)
+Op_Lexle (281)
+Op_Lexlt (282)
+Op_Lexne (283)
+Op_Minus (284)
+Op_Mod (285)
+Op_Mult (286)
+Op_Neg (287)
+Op_Neqv (288)
+Op_Nonnull (289)
+Op_Null (290)
+Op_Number (291)
+Op_Numeq (292)
+Op_Numge (293)
+Op_Numgt (294)
+Op_Numle (295)
+Op_Numlt (296)
+Op_Numne (297)
+Op_Plus (298)
+Op_Power (299)
+Op_Random (300)
+Op_Rasgn (301)
+Op_Rcv (302)
+Op_RcvBk (303)
+Op_Refresh (304)
+Op_Rswap (305)
+Op_Sect (306)
+Op_Snd (307)
+Op_SndBk (308)
+Op_Size (309)
+Op_Subsc (310)
+Op_Swap (311)
+Op_Tabmat (312)
+Op_Toby (313)
+Op_Unions (314)
+Op_Value (315)
+Op_Bscan (316)
+Op_Ccase (317)
+Op_Chfail (318)
+Op_Coact (319)
+Op_Cofail (320)
+Op_Coret (321)
+Op_Create (322)
+Op_Cset (323)
+Op_Dup (324)
+Op_Efail (325)
+Op_EInit (326)
+Op_Eret (327)
+Op_Escan (328)
+Op_Esusp (329)
+Op_Field (330)
+Op_Goto (331)
+Op_Init (332)
+Op_Int (333)
+Op_Invoke (334)
+Op_Keywd (335)
+Op_Limit (336)
+Op_Line (337)
+Op_Llist (338)
+Op_Lsusp (339)
+Op_Mark (340)
+Op_Pfail (341)
+Op_Pnull (342)
+Op_Pop (343)
+Op_Pret (344)
+Op_Psusp (345)
+Op_Push1 (346)
+Op_Pushn1 (347)
+Op_Real (348)
+Op_Sdup (349)
+Op_Str (350)
+Op_Unmark (351)
+Op_Var (352)
+Op_Arg (353)
+Op_Static (354)
+Op_Local (355)
+Op_Global (356)
+Op_Mark0 (357)
+Op_Quit (358)
+Op_FQuit (359)
+Op_Tally (360)
+Op_Apply (361)
+Op_Acset (362)
+Op_Areal (363)
+Op_Astr (364)
+Op_Aglobal (365)
+Op_Astatic (366)
+Op_Agoto (367)
+Op_Amark (368)
+Op_Noop (369)
+Op_Colm (370)
+Op_Proc (371)
+Op_Declend (372)
+Op_End (373)
+Op_Link (374)
+Op_Version (375) 3
+Op_Con (376)
+Op_Filen (377)
+Op_Record (378)
+Op_Impl (379)
+Op_Error (380)
+Op_Trace (381)
+Op_Lab (382)
+Op_Invocable (383)
+Op_Copyd (384)
+Op_Trapret (385)
+Op_Trapfail (386)
+Op_Synt (387)
+Op_Uid (388)
+
+
+Nonterminals, with rules where they appear
+
+$accept (134)
+    on left: 0
+statementlist (135)
+    on left: 1 2, on right: 0 1
+statement (136)
+    on left: 3, on right: 1 2
+
+
+State 0
+
+    0 $accept: . statementlist $end
+
+    Op_Version  shift, and go to state 1
+
+    statementlist  go to state 2
+    statement      go to state 3
+
+
+State 1
+
+    3 statement: Op_Version .
+
+    $default  reduce using rule 3 (statement)
+
+
+State 2
+
+    0 $accept: statementlist . $end
+
+    $end  shift, and go to state 4
+
+
+State 3
+
+    1 statementlist: statement . statementlist
+    2              | statement .
+
+    Op_Version  shift, and go to state 1
+
+    $default  reduce using rule 2 (statementlist)
+
+    statementlist  go to state 5
+    statement      go to state 3
+
+
+State 4
+
+    0 $accept: statementlist $end .
+
+    $default  accept
+
+
+State 5
+
+    1 statementlist: statement statementlist .
+
+    $default  reduce using rule 1 (statementlist)

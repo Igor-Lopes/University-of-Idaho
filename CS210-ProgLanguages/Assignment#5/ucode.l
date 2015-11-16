@@ -3,13 +3,14 @@
 // Igor Lopes - CS210 - HW#4
 
 #include <stdio.h>
-#include "hw4.h"
+#include "ucode.tab.h"
 
 %}
 
 %option noyywrap
 
 %%
+
 
 [\t \n]+		{ 	      }
 \#[^\n]+		{	      }
@@ -23,7 +24,6 @@ U[0-9]+\.[0-9]+\.00	{ return VERSIONSTAMP; }
 [a-zA-Z0-9]+\.\[a-zA-Z0-9]+ { return FILENAME; }
 L[0-9]+			{ return LABEL; }
 "any"			{ return ANY; }
-
 "uid"                           { return Op_Uid; }
 (con|impl)                      { return Op_Con; }
 "bscan"	                        { return Op_Bscan; }

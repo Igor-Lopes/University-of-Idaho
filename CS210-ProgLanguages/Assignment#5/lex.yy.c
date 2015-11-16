@@ -1232,13 +1232,13 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "hw4.l"
-#line 2 "hw4.l"
+#line 1 "ucode.l"
+#line 2 "ucode.l"
 
 // Igor Lopes - CS210 - HW#4
 
 #include <stdio.h>
-#include "hw4.h"
+#include "ucode.tab.h"
 
 #line 1244 "lex.yy.c"
 
@@ -1454,10 +1454,11 @@ YY_DECL
 		}
 
 	{
-#line 12 "hw4.l"
+#line 12 "ucode.l"
 
 
-#line 1461 "lex.yy.c"
+
+#line 1462 "lex.yy.c"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -1517,670 +1518,670 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 14 "hw4.l"
+#line 15 "ucode.l"
 { 	      }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 15 "hw4.l"
+#line 16 "ucode.l"
 {	      }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 16 "hw4.l"
+#line 17 "ucode.l"
 { return VERSIONSTAMP; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 17 "hw4.l"
+#line 18 "ucode.l"
 { return UCODESTAMP; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 18 "hw4.l"
+#line 19 "ucode.l"
 { return OCTCONST; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 19 "hw4.l"
+#line 20 "ucode.l"
 { return DECCONST; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 20 "hw4.l"
+#line 21 "ucode.l"
 { return COMMA; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 21 "hw4.l"
+#line 22 "ucode.l"
 { return CONTROL_L; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 22 "hw4.l"
+#line 23 "ucode.l"
 { return REALCONST; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 23 "hw4.l"
+#line 24 "ucode.l"
 { return FILENAME; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 24 "hw4.l"
+#line 25 "ucode.l"
 { return LABEL; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 25 "hw4.l"
+#line 26 "ucode.l"
 { return ANY; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 27 "hw4.l"
+#line 27 "ucode.l"
 { return Op_Uid; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 28 "hw4.l"
+#line 28 "ucode.l"
 { return Op_Con; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 29 "hw4.l"
+#line 29 "ucode.l"
 { return Op_Bscan; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 30 "hw4.l"
+#line 30 "ucode.l"
 { return Op_Ccase; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 31 "hw4.l"
+#line 31 "ucode.l"
 { return Op_Chfail; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 32 "hw4.l"
+#line 32 "ucode.l"
 { return Op_Coact; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 33 "hw4.l"
+#line 33 "ucode.l"
 { return Op_Cofail; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 34 "hw4.l"
+#line 34 "ucode.l"
 { return Op_Coret; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 35 "hw4.l"
+#line 35 "ucode.l"
 { return Op_Create; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 36 "hw4.l"
+#line 36 "ucode.l"
 { return Op_Cset; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 37 "hw4.l"
+#line 37 "ucode.l"
 { return Op_Dup; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 38 "hw4.l"
+#line 38 "ucode.l"
 { return Op_Efail; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 39 "hw4.l"
+#line 39 "ucode.l"
 { return Op_EInit; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 40 "hw4.l"
+#line 40 "ucode.l"
 { return Op_Eret; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 41 "hw4.l"
+#line 41 "ucode.l"
 { return Op_Escan; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 42 "hw4.l"
+#line 42 "ucode.l"
 { return Op_Esusp; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 43 "hw4.l"
+#line 43 "ucode.l"
 { return Op_Field; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 44 "hw4.l"
+#line 44 "ucode.l"
 { return Op_Goto; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 45 "hw4.l"
+#line 45 "ucode.l"
 { return Op_Init; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 46 "hw4.l"
+#line 46 "ucode.l"
 { return Op_Int; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 47 "hw4.l"
+#line 47 "ucode.l"
 { return Op_Invoke; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 48 "hw4.l"
+#line 48 "ucode.l"
 { return Op_Keywd; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 49 "hw4.l"
+#line 49 "ucode.l"
 { return Op_Limit; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 50 "hw4.l"
+#line 50 "ucode.l"
 { return Op_Line; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 51 "hw4.l"
+#line 51 "ucode.l"
 { return Op_Llist; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 52 "hw4.l"
+#line 52 "ucode.l"
 { return Op_Lsusp; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 53 "hw4.l"
+#line 53 "ucode.l"
 { return Op_Mark; }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 54 "hw4.l"
+#line 54 "ucode.l"
 { return Op_Pfail; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 55 "hw4.l"
+#line 55 "ucode.l"
 { return Op_Pnull; }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 56 "hw4.l"
+#line 56 "ucode.l"
 { return Op_Pop; }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 57 "hw4.l"
+#line 57 "ucode.l"
 { return Op_Pret; }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 58 "hw4.l"
+#line 58 "ucode.l"
 { return Op_Psusp; }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 59 "hw4.l"
+#line 59 "ucode.l"
 { return Op_Push1; }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 60 "hw4.l"
+#line 60 "ucode.l"
 { return Op_Pushn1; }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 61 "hw4.l"
+#line 61 "ucode.l"
 { return Op_Real; }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 62 "hw4.l"
+#line 62 "ucode.l"
 { return Op_Sdup; }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 63 "hw4.l"
+#line 63 "ucode.l"
 { return Op_Str; }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 64 "hw4.l"
+#line 64 "ucode.l"
 { return Op_Unmark; }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 65 "hw4.l"
+#line 65 "ucode.l"
 { return Op_Var; }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 66 "hw4.l"
+#line 66 "ucode.l"
 { return Op_Arg; }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 67 "hw4.l"
+#line 67 "ucode.l"
 { return Op_Static; }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 68 "hw4.l"
+#line 68 "ucode.l"
 { return Op_Local; }
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 69 "hw4.l"
+#line 69 "ucode.l"
 { return Op_Global; }
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 70 "hw4.l"
+#line 70 "ucode.l"
 { return Op_Mark0; }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 71 "hw4.l"
+#line 71 "ucode.l"
 { return Op_Quit; }
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 72 "hw4.l"
+#line 72 "ucode.l"
 { return Op_FQuit; }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 73 "hw4.l"
+#line 73 "ucode.l"
 { return Op_Tally; }
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 74 "hw4.l"
+#line 74 "ucode.l"
 { return Op_Apply; }
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 75 "hw4.l"
+#line 75 "ucode.l"
 { return Op_Asgn; }
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 76 "hw4.l"
+#line 76 "ucode.l"
 { return Op_Bang; }
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 77 "hw4.l"
+#line 77 "ucode.l"
 { return Op_Cat; }
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 78 "hw4.l"
+#line 78 "ucode.l"
 { return Op_Compl; }
 	YY_BREAK
 case 65:
 YY_RULE_SETUP
-#line 79 "hw4.l"
+#line 79 "ucode.l"
 { return Op_Diff; }
 	YY_BREAK
 case 66:
 YY_RULE_SETUP
-#line 80 "hw4.l"
+#line 80 "ucode.l"
 { return Op_Div; }
 	YY_BREAK
 case 67:
 YY_RULE_SETUP
-#line 81 "hw4.l"
+#line 81 "ucode.l"
 { return Op_Eqv; }
 	YY_BREAK
 case 68:
 YY_RULE_SETUP
-#line 82 "hw4.l"
+#line 82 "ucode.l"
 { return Op_Inter; }
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 83 "hw4.l"
+#line 83 "ucode.l"
 { return Op_Lconcat; }
 	YY_BREAK
 case 70:
 YY_RULE_SETUP
-#line 84 "hw4.l"
+#line 84 "ucode.l"
 { return Op_Lexeq; }
 	YY_BREAK
 case 71:
 YY_RULE_SETUP
-#line 85 "hw4.l"
+#line 85 "ucode.l"
 { return Op_Lexge; }
 	YY_BREAK
 case 72:
 YY_RULE_SETUP
-#line 86 "hw4.l"
+#line 86 "ucode.l"
 { return Op_Lexgt; }
 	YY_BREAK
 case 73:
 YY_RULE_SETUP
-#line 87 "hw4.l"
+#line 87 "ucode.l"
 { return Op_Lexle; }
 	YY_BREAK
 case 74:
 YY_RULE_SETUP
-#line 88 "hw4.l"
+#line 88 "ucode.l"
 { return Op_Lexlt; }
 	YY_BREAK
 case 75:
 YY_RULE_SETUP
-#line 89 "hw4.l"
+#line 89 "ucode.l"
 { return Op_Lexne; }
 	YY_BREAK
 case 76:
 YY_RULE_SETUP
-#line 90 "hw4.l"
+#line 90 "ucode.l"
 { return Op_Minus; }
 	YY_BREAK
 case 77:
 YY_RULE_SETUP
-#line 91 "hw4.l"
+#line 91 "ucode.l"
 { return Op_Mod; }
 	YY_BREAK
 case 78:
 YY_RULE_SETUP
-#line 92 "hw4.l"
+#line 92 "ucode.l"
 { return Op_Mult; }
 	YY_BREAK
 case 79:
 YY_RULE_SETUP
-#line 93 "hw4.l"
+#line 93 "ucode.l"
 { return Op_Neg; }
 	YY_BREAK
 case 80:
 YY_RULE_SETUP
-#line 94 "hw4.l"
+#line 94 "ucode.l"
 { return Op_Neqv; }
 	YY_BREAK
 case 81:
 YY_RULE_SETUP
-#line 95 "hw4.l"
+#line 95 "ucode.l"
 { return Op_Nonnull; }
 	YY_BREAK
 case 82:
 YY_RULE_SETUP
-#line 96 "hw4.l"
+#line 96 "ucode.l"
 { return Op_Null; }
 	YY_BREAK
 case 83:
 YY_RULE_SETUP
-#line 97 "hw4.l"
+#line 97 "ucode.l"
 { return Op_Number; }
 	YY_BREAK
 case 84:
 YY_RULE_SETUP
-#line 98 "hw4.l"
+#line 98 "ucode.l"
 { return Op_Numeq; }
 	YY_BREAK
 case 85:
 YY_RULE_SETUP
-#line 99 "hw4.l"
+#line 99 "ucode.l"
 { return Op_Numge; }
 	YY_BREAK
 case 86:
 YY_RULE_SETUP
-#line 100 "hw4.l"
+#line 100 "ucode.l"
 { return Op_Numgt; }
 	YY_BREAK
 case 87:
 YY_RULE_SETUP
-#line 101 "hw4.l"
+#line 101 "ucode.l"
 { return Op_Numle; }
 	YY_BREAK
 case 88:
 YY_RULE_SETUP
-#line 102 "hw4.l"
+#line 102 "ucode.l"
 { return Op_Numlt; }
 	YY_BREAK
 case 89:
 YY_RULE_SETUP
-#line 103 "hw4.l"
+#line 103 "ucode.l"
 { return Op_Numne; }
 	YY_BREAK
 case 90:
 YY_RULE_SETUP
-#line 104 "hw4.l"
+#line 104 "ucode.l"
 { return Op_Plus; }
 	YY_BREAK
 case 91:
 YY_RULE_SETUP
-#line 105 "hw4.l"
+#line 105 "ucode.l"
 { return Op_Power; }
 	YY_BREAK
 case 92:
 YY_RULE_SETUP
-#line 106 "hw4.l"
+#line 106 "ucode.l"
 { return Op_Random; }
 	YY_BREAK
 case 93:
 YY_RULE_SETUP
-#line 107 "hw4.l"
+#line 107 "ucode.l"
 { return Op_Rasgn; }
 	YY_BREAK
 case 94:
 YY_RULE_SETUP
-#line 108 "hw4.l"
+#line 108 "ucode.l"
 { return Op_Rcv; }
 	YY_BREAK
 case 95:
 YY_RULE_SETUP
-#line 109 "hw4.l"
+#line 109 "ucode.l"
 { return Op_RcvBk; }
 	YY_BREAK
 case 96:
 YY_RULE_SETUP
-#line 110 "hw4.l"
+#line 110 "ucode.l"
 { return Op_Refresh; }
 	YY_BREAK
 case 97:
 YY_RULE_SETUP
-#line 111 "hw4.l"
+#line 111 "ucode.l"
 { return Op_Rswap; }
 	YY_BREAK
 case 98:
 YY_RULE_SETUP
-#line 112 "hw4.l"
+#line 112 "ucode.l"
 { return Op_Sect; }
 	YY_BREAK
 case 99:
 YY_RULE_SETUP
-#line 113 "hw4.l"
+#line 113 "ucode.l"
 { return Op_Snd; }
 	YY_BREAK
 case 100:
 YY_RULE_SETUP
-#line 114 "hw4.l"
+#line 114 "ucode.l"
 { return Op_SndBk; }
 	YY_BREAK
 case 101:
 YY_RULE_SETUP
-#line 115 "hw4.l"
+#line 115 "ucode.l"
 { return Op_Size; }
 	YY_BREAK
 case 102:
 YY_RULE_SETUP
-#line 116 "hw4.l"
+#line 116 "ucode.l"
 { return Op_Subsc; }
 	YY_BREAK
 case 103:
 YY_RULE_SETUP
-#line 117 "hw4.l"
+#line 117 "ucode.l"
 { return Op_Swap; }
 	YY_BREAK
 case 104:
 YY_RULE_SETUP
-#line 118 "hw4.l"
+#line 118 "ucode.l"
 { return Op_Tabmat; }
 	YY_BREAK
 case 105:
 YY_RULE_SETUP
-#line 119 "hw4.l"
+#line 119 "ucode.l"
 { return Op_Toby; }
 	YY_BREAK
 case 106:
 YY_RULE_SETUP
-#line 120 "hw4.l"
+#line 120 "ucode.l"
 { return Op_Unions; }
 	YY_BREAK
 case 107:
 YY_RULE_SETUP
-#line 121 "hw4.l"
+#line 121 "ucode.l"
 { return Op_Value; }
 	YY_BREAK
 case 108:
 YY_RULE_SETUP
-#line 122 "hw4.l"
+#line 122 "ucode.l"
 { return Op_Acset; }
 	YY_BREAK
 case 109:
 YY_RULE_SETUP
-#line 123 "hw4.l"
+#line 123 "ucode.l"
 { return Op_Areal; }
 	YY_BREAK
 case 110:
 YY_RULE_SETUP
-#line 124 "hw4.l"
+#line 124 "ucode.l"
 { return Op_Astr; }
 	YY_BREAK
 case 111:
 YY_RULE_SETUP
-#line 125 "hw4.l"
+#line 125 "ucode.l"
 { return Op_Aglobal; }
 	YY_BREAK
 case 112:
 YY_RULE_SETUP
-#line 126 "hw4.l"
+#line 126 "ucode.l"
 { return Op_Astatic; }
 	YY_BREAK
 case 113:
 YY_RULE_SETUP
-#line 127 "hw4.l"
+#line 127 "ucode.l"
 { return Op_Agoto; }
 	YY_BREAK
 case 114:
 YY_RULE_SETUP
-#line 128 "hw4.l"
+#line 128 "ucode.l"
 { return Op_Amark; }
 	YY_BREAK
 case 115:
 YY_RULE_SETUP
-#line 129 "hw4.l"
+#line 129 "ucode.l"
 { return Op_Noop; }
 	YY_BREAK
 case 116:
 YY_RULE_SETUP
-#line 130 "hw4.l"
+#line 130 "ucode.l"
 { return Op_Colm; }
 	YY_BREAK
 case 117:
 YY_RULE_SETUP
-#line 131 "hw4.l"
+#line 131 "ucode.l"
 { return Op_Proc; }
 	YY_BREAK
 case 118:
 YY_RULE_SETUP
-#line 132 "hw4.l"
+#line 132 "ucode.l"
 { return Op_Declend; }
 	YY_BREAK
 case 119:
 YY_RULE_SETUP
-#line 133 "hw4.l"
+#line 133 "ucode.l"
 { return Op_End; }
 	YY_BREAK
 case 120:
 YY_RULE_SETUP
-#line 134 "hw4.l"
+#line 134 "ucode.l"
 { return Op_Link; }
 	YY_BREAK
 case 121:
 YY_RULE_SETUP
-#line 135 "hw4.l"
+#line 135 "ucode.l"
 { return Op_Version; }
 	YY_BREAK
 case 122:
 YY_RULE_SETUP
-#line 136 "hw4.l"
+#line 136 "ucode.l"
 { return Op_Filen; }
 	YY_BREAK
 case 123:
 YY_RULE_SETUP
-#line 137 "hw4.l"
+#line 137 "ucode.l"
 { return Op_Version; }
 	YY_BREAK
 case 124:
 YY_RULE_SETUP
-#line 138 "hw4.l"
+#line 138 "ucode.l"
 { return Op_Filen; }
 	YY_BREAK
 case 125:
 YY_RULE_SETUP
-#line 139 "hw4.l"
+#line 139 "ucode.l"
 { return Op_Colm; }
 	YY_BREAK
 case 126:
 YY_RULE_SETUP
-#line 140 "hw4.l"
+#line 140 "ucode.l"
 { return Op_Lab; }
 	YY_BREAK
 case 127:
 YY_RULE_SETUP
-#line 141 "hw4.l"
+#line 141 "ucode.l"
 { return Op_Invocable; }
 	YY_BREAK
 case 128:
 YY_RULE_SETUP
-#line 142 "hw4.l"
+#line 142 "ucode.l"
 { return Op_Copyd; }
 	YY_BREAK
 case 129:
 YY_RULE_SETUP
-#line 143 "hw4.l"
+#line 143 "ucode.l"
 { return Op_Trapret; }
 	YY_BREAK
 case 130:
 YY_RULE_SETUP
-#line 144 "hw4.l"
+#line 144 "ucode.l"
 { return Op_Trapfail; }
 	YY_BREAK
 case 131:
 YY_RULE_SETUP
-#line 145 "hw4.l"
+#line 145 "ucode.l"
 { return Op_Synt; }
 	YY_BREAK
 case 132:
 YY_RULE_SETUP
-#line 147 "hw4.l"
+#line 147 "ucode.l"
 { return IDENTIFIER; }
 	YY_BREAK
 case 133:
 YY_RULE_SETUP
-#line 149 "hw4.l"
+#line 149 "ucode.l"
 ECHO;
 	YY_BREAK
-#line 2184 "lex.yy.c"
+#line 2185 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -3175,7 +3176,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 148 "hw4.l"
+#line 148 "ucode.l"
 
 
 

@@ -180,11 +180,11 @@
 /*
  * Extra instructions added for calling Icon from C (used by Posix functions)
  */
-#ifdef PosixFns
+
 #define Op_Copyd        111
 #define Op_Trapret      112
 #define Op_Trapfail     113
-#endif					/* PosixFns */
+					/* PosixFns */
 
 #define Op_Synt         114             /* syntax code used by the linker */
 #define Op_Uid          115             /* Universal Identifier for .u files */
