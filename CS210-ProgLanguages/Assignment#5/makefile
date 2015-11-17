@@ -27,4 +27,6 @@ $(APP).tab.c: $(APP).y
 
 $(APP).tab.h: $(APP).y
 	bison -d $(APP).y
-
+run:
+	make
+	sh script.sh

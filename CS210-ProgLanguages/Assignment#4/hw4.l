@@ -20,7 +20,7 @@ U[0-9]+\.[0-9]+\.00	{ return VERSIONSTAMP; }
 ","			{ return COMMA; }
 "^L"			{ return CONTROL_L; }
 [0-9]+\.\[0-9]+		{ return REALCONST; }
-[a-zA-Z0-9]+\.\[a-zA-Z0-9]+ { return FILENAME; }
+[a-zA-Z0-9]+\.\icn { return FILENAME; }
 L[0-9]+			{ return LABEL; }
 "any"			{ return ANY; }
 

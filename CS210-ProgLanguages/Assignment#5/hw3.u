@@ -1,0 +1,1146 @@
+version	U12.1.00
+uid	hw3.u1-1447652493-0
+impl	local
+global	6
+	0,000005,wordsinfile,1
+	1,000005,checkWord,1
+	2,000005,markWords,1
+	3,000005,loadDict,0
+	4,000005,wordsinline,1
+	5,000005,main,1
+
+proc wordsinfile
+	local	0,001000,s
+	local	1,000000,f
+	local	2,000000,open
+	local	3,000000,L
+	local	4,000000,T
+	local	5,000000,table
+	local	6,000000,line
+	local	7,000000,read
+	local	8,000000,wordsinline
+	local	9,000000,i
+	local	10,000000,member
+	local	11,000000,checkWord
+	local	12,000000,insert
+	local	13,000000,close
+	con	0,002000,1,0
+	con	1,002000,1,1
+	con	2,010000,4,164,162,165,145
+	declend
+	filen	hw3.icn
+	line	6
+	colm	11
+	synt	any
+	mark	L1
+	pnull
+	var	1
+	var	2
+	var	0
+	line	7
+	colm	14
+	synt	any
+	invoke	1
+	line	7
+	colm	7
+	synt	any
+	asgn
+	unmark
+lab L1
+	mark	L2
+	pnull
+	var	3
+	pnull
+	line	8
+	colm	10
+	synt	any
+	llist	0
+	line	8
+	colm	7
+	synt	any
+	asgn
+	unmark
+lab L2
+	mark	L3
+	pnull
+	var	4
+	var	5
+	int	0
+	line	9
+	colm	15
+	synt	any
+	invoke	1
+	line	9
+	colm	7
+	synt	any
+	asgn
+	unmark
+lab L3
+	mark	L4
+lab L5
+	line	10
+	colm	5
+	synt	while
+	mark0
+	pnull
+	var	6
+	var	7
+	var	1
+	line	10
+	colm	23
+	synt	any
+	invoke	1
+	line	10
+	colm	16
+	synt	any
+	asgn
+	unmark
+	mark	L5
+	mark	L8
+	pnull
+	var	3
+	var	8
+	var	6
+	line	11
+	colm	24
+	synt	any
+	invoke	1
+	line	11
+	colm	10
+	synt	any
+	asgn
+	unmark
+lab L8
+	line	12
+	colm	9
+	synt	every
+	mark0
+	pnull
+	var	9
+	pnull
+	int	1
+	pnull
+	var	3
+	line	12
+	colm	24
+	synt	any
+	size
+	push1
+	line	12
+	colm	21
+	synt	any
+	toby
+	line	12
+	colm	16
+	synt	any
+	asgn
+	pop
+	mark0
+	line	13
+	colm	17
+	synt	ifelse
+	mark	L11
+	var	10
+	var	4
+	pnull
+	var	3
+	var	9
+	line	13
+	colm	31
+	synt	any
+	subsc
+	line	13
+	colm	26
+	synt	any
+	invoke	2
+	unmark
+	pnull
+	pnull
+	var	4
+	pnull
+	var	3
+	var	9
+	line	14
+	colm	28
+	synt	any
+	subsc
+	line	14
+	colm	26
+	synt	any
+	subsc
+	dup
+	int	1
+	line	14
+	colm	33
+	synt	any
+	plus
+	asgn
+	goto	L12
+lab L11
+	line	16
+	colm	25
+	synt	if
+	mark0
+	pnull
+	var	11
+	pnull
+	var	3
+	var	9
+	line	16
+	colm	39
+	synt	any
+	subsc
+	line	16
+	colm	37
+	synt	any
+	invoke	1
+	str	2
+	line	16
+	colm	44
+	synt	any
+	lexeq
+	unmark
+	var	12
+	var	4
+	pnull
+	var	3
+	var	9
+	line	17
+	colm	43
+	synt	any
+	subsc
+	int	1
+	line	17
+	colm	39
+	synt	any
+	invoke	3
+	line	16
+	colm	25
+	synt	endif
+lab L12
+	line	13
+	colm	17
+	synt	endifelse
+	unmark
+lab L9
+	efail
+lab L10
+	line	12
+	colm	9
+	synt	endevery
+lab L6
+	unmark
+	goto	L5
+lab L7
+	line	10
+	colm	5
+	synt	endwhile
+	unmark
+lab L4
+	mark	L13
+	var	13
+	var	1
+	line	22
+	colm	10
+	synt	any
+	invoke	1
+	unmark
+lab L13
+	mark	L14
+	mark	L15
+	var	4
+	line	24
+	colm	1
+	synt	any
+	pret
+lab L15
+	synt	any
+	pfail
+	unmark
+lab L14
+	pnull
+	line	25
+	colm	2
+	synt	any
+	pfail
+	end
+proc checkWord
+	local	0,001000,word
+	local	1,000000,w
+	local	2,000000,map
+	local	3,000000,i
+	con	0,002000,1,1
+	con	1,010000,4,164,162,165,145
+	con	2,010000,5,146,141,154,163,145
+	declend
+	line	27
+	colm	12
+	synt	any
+	mark	L1
+	pnull
+	var	1
+	var	2
+	var	0
+	line	29
+	colm	9
+	synt	any
+	invoke	1
+	line	29
+	colm	3
+	synt	any
+	asgn
+	unmark
+lab L1
+	mark	L2
+	line	31
+	colm	1
+	synt	every
+	mark0
+	pnull
+	var	3
+	pnull
+	int	0
+	pnull
+	var	1
+	line	31
+	colm	15
+	synt	any
+	size
+	push1
+	line	31
+	colm	12
+	synt	any
+	toby
+	line	31
+	colm	8
+	synt	any
+	asgn
+	pop
+	mark0
+	mark	L5
+	line	32
+	colm	9
+	synt	if
+	mark0
+	pnull
+	pnull
+	int	0
+	var	3
+	line	32
+	colm	14
+	synt	any
+	numlt
+	pnull
+	var	1
+	line	32
+	colm	20
+	synt	any
+	size
+	line	32
+	colm	18
+	synt	any
+	numlt
+	unmark
+	line	33
+	colm	17
+	synt	if
+	mark0
+	pnull
+	pnull
+	var	1
+	var	3
+	line	33
+	colm	21
+	synt	any
+	subsc
+	mark	L6
+	pnull
+	var	1
+	pnull
+	var	3
+	int	0
+	line	33
+	colm	32
+	synt	any
+	plus
+	line	33
+	colm	30
+	synt	any
+	subsc
+	line	33
+	colm	35
+	synt	any
+	esusp
+	goto	L7
+lab L6
+	pnull
+	var	1
+	pnull
+	var	3
+	int	0
+	line	33
+	colm	39
+	synt	any
+	minus
+	line	33
+	colm	37
+	synt	any
+	subsc
+lab L7
+	line	33
+	colm	25
+	synt	any
+	lexeq
+	unmark
+	mark	L8
+	str	1
+	line	33
+	colm	49
+	synt	any
+	pret
+lab L8
+	synt	any
+	pfail
+	line	33
+	colm	17
+	synt	endif
+	line	32
+	colm	9
+	synt	endif
+	unmark
+lab L5
+	mark	L9
+	line	36
+	colm	9
+	synt	if
+	mark0
+	pnull
+	var	3
+	int	0
+	line	36
+	colm	14
+	synt	any
+	numeq
+	unmark
+	line	37
+	colm	17
+	synt	if
+	mark0
+	pnull
+	pnull
+	var	1
+	var	3
+	line	37
+	colm	21
+	synt	any
+	subsc
+	pnull
+	var	1
+	pnull
+	var	3
+	int	0
+	line	37
+	colm	31
+	synt	any
+	plus
+	line	37
+	colm	29
+	synt	any
+	subsc
+	line	37
+	colm	25
+	synt	any
+	lexeq
+	unmark
+	mark	L10
+	str	1
+	line	37
+	colm	40
+	synt	any
+	pret
+lab L10
+	synt	any
+	pfail
+	line	37
+	colm	17
+	synt	endif
+	line	36
+	colm	9
+	synt	endif
+	unmark
+lab L9
+	mark	L11
+	line	40
+	colm	9
+	synt	if
+	mark0
+	pnull
+	var	3
+	int	0
+	line	40
+	colm	14
+	synt	any
+	numeq
+	unmark
+	line	41
+	colm	17
+	synt	if
+	mark0
+	pnull
+	pnull
+	var	1
+	var	3
+	line	41
+	colm	21
+	synt	any
+	subsc
+	pnull
+	var	1
+	pnull
+	var	3
+	int	0
+	line	41
+	colm	31
+	synt	any
+	plus
+	line	41
+	colm	29
+	synt	any
+	subsc
+	line	41
+	colm	25
+	synt	any
+	lexeq
+	unmark
+	mark	L12
+	str	1
+	line	41
+	colm	40
+	synt	any
+	pret
+lab L12
+	synt	any
+	pfail
+	line	41
+	colm	17
+	synt	endif
+	line	40
+	colm	9
+	synt	endif
+	unmark
+lab L11
+	line	44
+	colm	9
+	synt	if
+	mark0
+	pnull
+	var	3
+	pnull
+	var	1
+	line	44
+	colm	16
+	synt	any
+	size
+	line	44
+	colm	14
+	synt	any
+	numeq
+	unmark
+	line	45
+	colm	17
+	synt	if
+	mark0
+	pnull
+	pnull
+	var	1
+	var	3
+	line	45
+	colm	21
+	synt	any
+	subsc
+	pnull
+	var	1
+	pnull
+	var	3
+	int	0
+	line	45
+	colm	31
+	synt	any
+	minus
+	line	45
+	colm	29
+	synt	any
+	subsc
+	line	45
+	colm	25
+	synt	any
+	lexeq
+	unmark
+	mark	L13
+	str	1
+	line	45
+	colm	40
+	synt	any
+	pret
+lab L13
+	synt	any
+	pfail
+	line	45
+	colm	17
+	synt	endif
+	line	44
+	colm	9
+	synt	endif
+	unmark
+lab L3
+	efail
+lab L4
+	line	31
+	colm	1
+	synt	endevery
+	unmark
+lab L2
+	mark	L14
+	mark	L15
+	str	2
+	line	49
+	colm	1
+	synt	any
+	pret
+lab L15
+	synt	any
+	pfail
+	unmark
+lab L14
+	pnull
+	line	50
+	colm	1
+	synt	any
+	pfail
+	end
+proc markWords
+	local	0,001000,T
+	local	1,000000,words
+	local	2,000000,loadDict
+	local	3,000000,L
+	local	4,000000,i
+	local	5,000000,key
+	local	6,000000,put
+	local	7,000000,sort
+	local	8,000000,member
+	local	9,000000,write
+	con	0,002000,1,1
+	con	1,010000,1,040
+	con	2,010000,2,040,052
+	declend
+	line	52
+	colm	12
+	synt	any
+	mark	L1
+	pnull
+	var	1
+	var	2
+	line	53
+	colm	26
+	synt	any
+	invoke	0
+	line	53
+	colm	15
+	synt	any
+	asgn
+	unmark
+lab L1
+	mark	L2
+	pnull
+	var	3
+	pnull
+	line	54
+	colm	14
+	synt	any
+	llist	0
+	line	54
+	colm	11
+	synt	any
+	asgn
+	unmark
+lab L2
+	mark	L3
+	line	55
+	colm	9
+	synt	every
+	mark0
+	pnull
+	var	4
+	var	5
+	var	0
+	line	55
+	colm	21
+	synt	any
+	invoke	1
+	line	55
+	colm	16
+	synt	any
+	asgn
+	pop
+	mark0
+	var	6
+	var	3
+	var	4
+	line	56
+	colm	12
+	synt	any
+	invoke	2
+	unmark
+lab L4
+	efail
+lab L5
+	line	55
+	colm	9
+	synt	endevery
+	unmark
+lab L3
+	mark	L6
+	pnull
+	var	3
+	var	7
+	var	3
+	line	59
+	colm	18
+	synt	any
+	invoke	1
+	line	59
+	colm	11
+	synt	any
+	asgn
+	unmark
+lab L6
+	mark	L7
+	line	60
+	colm	9
+	synt	every
+	mark0
+	pnull
+	var	4
+	pnull
+	int	0
+	pnull
+	var	3
+	line	60
+	colm	24
+	synt	any
+	size
+	push1
+	line	60
+	colm	21
+	synt	any
+	toby
+	line	60
+	colm	16
+	synt	any
+	asgn
+	pop
+	mark0
+	line	61
+	colm	17
+	synt	ifelse
+	mark	L10
+	var	8
+	var	1
+	pnull
+	var	3
+	var	4
+	line	61
+	colm	34
+	synt	any
+	subsc
+	line	61
+	colm	26
+	synt	any
+	invoke	2
+	unmark
+	var	9
+	pnull
+	var	3
+	var	4
+	line	62
+	colm	32
+	synt	any
+	subsc
+	str	1
+	pnull
+	var	0
+	pnull
+	var	3
+	var	4
+	line	62
+	colm	45
+	synt	any
+	subsc
+	line	62
+	colm	43
+	synt	any
+	subsc
+	line	62
+	colm	30
+	synt	any
+	invoke	3
+	goto	L11
+lab L10
+	var	9
+	pnull
+	var	3
+	var	4
+	line	64
+	colm	32
+	synt	any
+	subsc
+	str	1
+	pnull
+	var	0
+	pnull
+	var	3
+	var	4
+	line	64
+	colm	45
+	synt	any
+	subsc
+	line	64
+	colm	43
+	synt	any
+	subsc
+	str	2
+	line	64
+	colm	30
+	synt	any
+	invoke	4
+lab L11
+	line	61
+	colm	17
+	synt	endifelse
+	unmark
+lab L8
+	efail
+lab L9
+	line	60
+	colm	9
+	synt	endevery
+	unmark
+lab L7
+	pnull
+	line	67
+	colm	1
+	synt	any
+	pfail
+	end
+proc loadDict
+	local	0,000000,T
+	local	1,000000,table
+	local	2,000000,dict
+	local	3,000000,open
+	local	4,000000,line
+	local	5,000000,read
+	local	6,000000,insert
+	local	7,000000,close
+	con	0,002000,1,0
+	con	1,010000,21,057,165,163,162,057,163,150,141,162,145,057,144,151,143,164,057,167,157,162,144,163
+	declend
+	line	69
+	colm	12
+	synt	any
+	mark	L1
+	pnull
+	var	0
+	var	1
+	int	0
+	line	70
+	colm	19
+	synt	any
+	invoke	1
+	line	70
+	colm	11
+	synt	any
+	asgn
+	unmark
+lab L1
+	mark	L2
+	pnull
+	var	2
+	var	3
+	str	1
+	line	71
+	colm	21
+	synt	any
+	invoke	1
+	line	71
+	colm	14
+	synt	any
+	asgn
+	unmark
+lab L2
+	mark	L3
+lab L4
+	line	72
+	colm	9
+	synt	while
+	mark0
+	pnull
+	var	4
+	var	5
+	var	2
+	line	72
+	colm	27
+	synt	any
+	invoke	1
+	line	72
+	colm	20
+	synt	any
+	asgn
+	unmark
+	mark	L4
+	var	6
+	var	0
+	var	4
+	int	0
+	line	73
+	colm	23
+	synt	any
+	invoke	3
+lab L5
+	unmark
+	goto	L4
+lab L6
+	line	72
+	colm	9
+	synt	endwhile
+	unmark
+lab L3
+	mark	L7
+	var	7
+	var	2
+	line	75
+	colm	14
+	synt	any
+	invoke	1
+	unmark
+lab L7
+	mark	L8
+	mark	L9
+	var	0
+	line	76
+	colm	9
+	synt	any
+	pret
+lab L9
+	synt	any
+	pfail
+	unmark
+lab L8
+	pnull
+	line	77
+	colm	2
+	synt	any
+	pfail
+	end
+proc wordsinline
+	local	0,001000,s
+	local	1,000000,alnum
+	local	2,000000,L
+	local	3,000000,tab
+	local	4,000000,upto
+	local	5,000000,put
+	local	6,000000,map
+	local	7,000000,many
+	declend
+	line	79
+	colm	12
+	synt	any
+	mark	L1
+	pnull
+	var	1
+	pnull
+	line	80
+	colm	13
+	synt	any
+	keywd	letters
+	line	80
+	colm	25
+	synt	any
+	keywd	digits
+	line	80
+	colm	22
+	synt	any
+	unions
+	line	80
+	colm	10
+	synt	any
+	asgn
+	unmark
+lab L1
+	mark	L2
+	pnull
+	var	2
+	pnull
+	line	81
+	colm	9
+	synt	any
+	llist	0
+	line	81
+	colm	6
+	synt	any
+	asgn
+	unmark
+lab L2
+	mark	L3
+	var	0
+	line	82
+	colm	6
+	synt	any
+	bscan
+lab L4
+	line	82
+	colm	8
+	synt	while
+	mark0
+	var	3
+	var	4
+	var	1
+	line	82
+	colm	22
+	synt	any
+	invoke	1
+	line	82
+	colm	17
+	synt	any
+	invoke	1
+	unmark
+	mark	L4
+	var	5
+	var	2
+	var	6
+	var	3
+	var	7
+	var	1
+	line	82
+	colm	53
+	synt	any
+	invoke	1
+	line	82
+	colm	48
+	synt	any
+	invoke	1
+	line	82
+	colm	44
+	synt	any
+	invoke	1
+	line	82
+	colm	37
+	synt	any
+	invoke	2
+lab L5
+	unmark
+	goto	L4
+lab L6
+	line	82
+	colm	8
+	synt	endwhile
+	line	82
+	colm	6
+	synt	any
+	escan
+	unmark
+lab L3
+	mark	L7
+	mark	L8
+	var	2
+	line	83
+	colm	4
+	synt	any
+	pret
+lab L8
+	synt	any
+	pfail
+	unmark
+lab L7
+	pnull
+	line	84
+	colm	2
+	synt	any
+	pfail
+	end
+proc main
+	local	0,001000,args
+	local	1,000000,stop
+	local	2,000000,T
+	local	3,000000,wordsinfile
+	local	4,000000,markWords
+	con	0,002000,1,1
+	con	1,010000,37,105,122,122,117,122,040,041,040,106,151,154,145,040,156,157,164,040,160,141,163,163,145,144,040,141,163,040,141,162,147,165,155,145,156,164,040,041
+	declend
+	line	86
+	colm	12
+	synt	any
+	mark	L1
+	line	87
+	colm	9
+	synt	if
+	mark0
+	pnull
+	pnull
+	var	0
+	line	87
+	colm	12
+	synt	any
+	size
+	int	0
+	line	87
+	colm	18
+	synt	any
+	numlt
+	unmark
+	var	1
+	str	1
+	line	87
+	colm	33
+	synt	any
+	invoke	1
+	line	87
+	colm	9
+	synt	endif
+	unmark
+lab L1
+	mark	L2
+	pnull
+	var	2
+	var	3
+	pnull
+	var	0
+	int	0
+	line	88
+	colm	30
+	synt	any
+	subsc
+	line	88
+	colm	25
+	synt	any
+	invoke	1
+	line	88
+	colm	11
+	synt	any
+	asgn
+	unmark
+lab L2
+	mark	L3
+	var	4
+	var	2
+	line	89
+	colm	18
+	synt	any
+	invoke	1
+	unmark
+lab L3
+	pnull
+	line	90
+	colm	1
+	synt	any
+	pfail
+	end

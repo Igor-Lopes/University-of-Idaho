@@ -184,7 +184,7 @@ extern int yydebug;
 typedef union YYSTYPE YYSTYPE;
 union YYSTYPE
 {
-#line 18 "ucode.y" /* yacc.c:1909  */
+#line 21 "ucode.y" /* yacc.c:1909  */
 
   int nValue;
 
