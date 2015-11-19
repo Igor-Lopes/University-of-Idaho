@@ -44,7 +44,7 @@ proc wordsinfile
 	line	7
 	colm	7
 	synt	any
-	asgn    a
+	asgn    
 	unmark
 lab L1
 	mark	L2

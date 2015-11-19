@@ -8,7 +8,7 @@ proc main
 	local	0,000000,write
 	con	0,004000,3.1415
 	declend
-	filen	example.icn
+	filen	main
 	line	1
 	colm	11
 	synt	any
