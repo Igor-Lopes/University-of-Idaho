@@ -166,8 +166,11 @@ int main (int argc, char *argv[]){
     if(strcmp(argv[1], "-t") == 0 ){
       ls_t();
     }
+    else
     if(strcmp(argv[1], "-f") == 0 ){
       ls_f();
+    } else {
+      printf("ERROR: Invalid Argument!\n");
     }
   }
 return 0;
