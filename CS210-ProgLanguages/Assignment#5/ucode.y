@@ -303,7 +303,7 @@ Proc :     Op_Proc KEYS { }
 	  ;
 
 //Recursive function for CON.
-CON:    { }
+CON:    {  }
 	| CON DECCONST {  }
 	| CON OCTCONST {  }
 	| CON COMMA	 {  }

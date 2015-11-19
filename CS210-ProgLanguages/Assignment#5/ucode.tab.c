@@ -2269,7 +2269,7 @@ yyreduce:
 
   case 109:
 #line 306 "ucode.y" /* yacc.c:1646  */
-    { }
+    {  }
 #line 2274 "ucode.tab.c" /* yacc.c:1646  */
     break;
 
