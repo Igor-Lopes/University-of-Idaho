@@ -11,18 +11,20 @@
 %option yylineno
 %%
 
-
 [\t \n]+		{ 	      }
 \#[^\n]+		{	      }
 U[0-9]+\.[0-9]+\.00	{ return VERSIONSTAMP; }
-[a-zA-Z0-9\-\\\/\,\;]+\.u1\-[0-9\-]+	{ return UCODESTAMP; }
+[a-zA-Z0-9\-\\\/\,\;\_]+\.u1\-[0-9\-]+	{ return UCODESTAMP; }
 0[0-7]{2,}		{ return OCTCONST; }
-[-+]?[0-9]*\.?[0-9]+			{ return DECCONST; }
+[-+]?[0-9]+			{ return DECCONST; }
 [0-9]+r[0-9a-fA-F]+    { return DECCONST; }
+[0-9]+\.[0-9]+\e-[0-9]  { return DECCONST; }
+[0-9]+\,[0-9]+\,[0-9]\e-[0-9]+ { return DECCONST; }
+[0-9]+\,[0-9]+\,[0-9]+\E-[0-9]+ { return DECCONST; }
 ","			{ return COMMA; }
-"^L"			{ return CONTROL_L; }
+\f			{ return CONTROL_L; }
 [-+]?[0-9]*\.?[0-9]+		{ return REALCONST; }
-[a-zA-Z0-9]+\.[a-zA-Z]+ { return FILENAME; }
+[a-zA-Z0-9\-\\\/\,\;\_]+\.[a-zA-Z]+ { return FILENAME; }
 L[0-9]+			{ return LABEL; }
 "any"			{ return ANY; }
 "uid"                           { return Op_Uid; }

@@ -4,28 +4,29 @@
 
 #include <stdio.h>
 #include "hw4.h"
-
 %}
 
 %option noyywrap
-
+%option yylineno
 %%
+
 
 [\t \n]+		{ 	      }
 \#[^\n]+		{	      }
 U[0-9]+\.[0-9]+\.00	{ return VERSIONSTAMP; }
 [a-zA-Z0-9\-\\\/\,\;]+\.u1\-[0-9\-]+	{ return UCODESTAMP; }
 0[0-7]{2,}		{ return OCTCONST; }
-[0-9]+			{ return DECCONST; }
+[-+]?[0-9]+			{ return DECCONST; }
+[0-9]+r[0-9a-fA-F]+    { return DECCONST; }
 ","			{ return COMMA; }
-"^L"			{ return CONTROL_L; }
-[0-9]+\.\[0-9]+		{ return REALCONST; }
-[a-zA-Z0-9]+\.\icn { return FILENAME; }
+\f			{ return CONTROL_L; }
+[-+]?[0-9]*\.?[0-9]+		{ return REALCONST; }
+[a-zA-Z0-9]+\.[a-zA-Z]+ { return FILENAME; }
 L[0-9]+			{ return LABEL; }
 "any"			{ return ANY; }
-
 "uid"                           { return Op_Uid; }
-(con|impl)                      { return Op_Con; }
+"con"                      	{ return Op_Con; }
+"impl" 				{ return Op_Impl;}
 "bscan"	                        { return Op_Bscan; }
 "ccase"	                        { return Op_Ccase; }
 "chfail"	                { return Op_Chfail; }
@@ -134,7 +135,7 @@ L[0-9]+			{ return LABEL; }
 "link"                          { return Op_Link; }
 "version"                       { return Op_Version; }
 "filen"                         { return Op_Filen; }
-"record"                        { return Op_Version; }
+"record"                        { return Op_Record; }
 "error"                         { return Op_Filen; }
 "trace"                         { return Op_Colm; }
 "lab"                           { return Op_Lab; }

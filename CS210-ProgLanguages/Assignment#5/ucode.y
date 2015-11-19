@@ -1,23 +1,40 @@
-
 %{
+
+/*
+ * CS210 - Programming Languages
+ * Dr. Jeffery
+ * Homework #5
+ * November 18th, 2015
+ * Igor Lopes
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+//Importing variables from main.
 extern int yylex();
 extern int yylineno;
+extern char *yyfilename;
 
+//Changing memory limit for bison. It will avoid the memory stressed error for long files.
 #define YYERROR_VERBOSE
 
-void yyerror(const char *msg)
-{
-      printf("ERROR(PARSER): %s %d\n", msg, yylineno);
-      
+#ifndef YYINITDEPTH
+#define YYINITDEPTH 100000
+#endif
+
+//Prints error message
+void yyerror(const char *msg){
+      printf("ERROR in FILE: %s\n", yyfilename);
+      printf("Line: %d\n", yylineno);
+      printf("%s\n", msg);
       exit(-1); 
 }
 
 %}
 
+//Union function
 %union {
   int nValue;
 }
@@ -158,240 +175,267 @@ void yyerror(const char *msg)
 %type <nValue> Proc
 %type  <nValue> KEYS
 %type  <nValue> CON
+%type  <nValue> OpImpl
+%type  <nValue> OpInvocable
 %%
-
-
 
 statementlist : statement statementlist
               | statement
               ;
 
-statement : Op_Version VERSIONSTAMP { printf("OpVersion\n");}
-	  | Op_Uid   UCODESTAMP { printf("Filename\n"); }
-	  | Op_Impl Op_Local { printf ("Opimpl\n"); }
-	  | Op_Global DECCONST { printf ("OPGlobal\n"); }
-	  | DECCONST COMMA OCTCONST COMMA KEYS COMMA DECCONST { printf("OpLocal\n"); } 
-          | Op_Record KEYS COMMA DECCONST { printf("Op_Record\n"); }
-	  | DECCONST COMMA IDENTIFIER { printf("DEC COMMA IDENTF\n"); }
-	  | Op_Link FILENAME { printf("Op_Link\n"); }
-	  | Op_Invocable KEYS { printf("Op_Invocable\n"); }
+//Processes all tokens before Proc line, starting with version.
+statement : Op_Version VERSIONSTAMP { }
+	  | Op_Uid  UCODESTAMP { }
+	  | Op_Impl OpImpl { }
+	  | Op_Global DECCONST { }
+	  | Op_Record KEYS COMMA DECCONST {  } 
+	  | DECCONST COMMA OCTCONST COMMA KEYS COMMA DECCONST {  } 
+	  | DECCONST COMMA KEYS { }
+	  | Op_Link FILENAME {  }
+	  | Op_Invocable OpInvocable {  } 
 	  | Control_L
 	  | Proc
           ;
 
-Control_L : 
-	  | CONTROL_L { printf("Control L"); }
+//Possible values for Op_Local.
+OpImpl : Op_Local {  }
+       | Op_Filen {  }
+       ;
+
+//Possible values for Op_Invocable.
+OpInvocable : IDENTIFIER {  }
+	    | DECCONST {  }
+	    ;
+
+Control_L : CONTROL_L { }
 	  ;
 
-Proc :    Op_Proc KEYS { printf("Op_Proc\n"); }
-	  | Op_Local DECCONST COMMA OCTCONST COMMA  KEYS { printf("Op_Local\n"); }
-	  | Op_Con CON	{ printf("Op_con\n"); }
-	  | Op_Declend { printf("Op_Declend\n");}
-	  | Op_Filen FILENAME { printf("Op_Filen\n"); }
-	  | Op_Line DECCONST { printf("Op_Line\n"); }
-	  | Op_Colm DECCONST { printf("Op_Colm\n"); }
-	  | Op_Synt KEYS { printf("Op_Synt\n"); }
-	  | Op_Mark LABEL { printf("Op_Mark\n"); }
-	  | Op_Pnull { printf("Op_PNull\n"); }
-	  | Op_Var DECCONST { printf("Op_Var\n"); }
-	  | Op_Invoke DECCONST { printf("Op_Invoke\n"); }
-	  | Op_Asgn { printf("Op_Asgn\n"); }
-	  | Op_Unmark { printf("Op_Unmark\n"); }
-	  | Op_Lab LABEL { printf("Op_Lab\n"); } 
-	  | Op_Llist DECCONST { printf("Op_Llist\n"); } 
-	  | Op_Int DECCONST { printf("Op_Int\n"); } 
-	  | Op_Mark0 { printf("Op_Mark0\n"); } 
-	  | Op_Size { printf("Op_Size\n"); }
-	  | Op_Push1 { printf("Op_Push1\n"); }
-	  | Op_Toby { printf("Op_Toby\n"); }
-	  | Op_Pop { printf("Op_Pop\n"); }
-	  | Op_Subsc { printf("Op_Subsc\n"); }
-	  | Op_Dup { printf("Op_Dup\n"); }
-	  | Op_Plus { printf("Op_Plus\n"); }
-          | Op_Goto LABEL { printf("Op_Goto\n"); }
-	  | Op_Str DECCONST { printf("Op_Str\n"); }
-	  | Op_Lexeq { printf("Op_Lexeq\n"); }
-	  | Op_Efail { printf("Op_Efail\n"); }
-	  | Op_Pret { printf("Op_Pret\n"); }
-	  | Op_Pfail { printf("Op_Pfail\n"); }
-	  | Op_End { printf("Op_End\n"); }
-	  | Op_Numlt { printf("Op_Numlt\n"); }
-	  | Op_Esusp { printf("Op_Esusp\n"); }
-	  | Op_Minus { printf("Op_Minus\n"); }
-	  | Op_Numeq { printf("Op_Numeq\n"); }
-	  | Op_Keywd KEYS { printf("Op_Keywd\n"); }
-	  | Op_Unions { printf("Op_Unions\n"); }
-          | Op_Bscan { printf("Op_Bscan\n"); }
-	  | Op_Escan { printf("Op_Escan\n"); }
-	  | Op_Field IDENTIFIER { printf("Op_Field\n"); }
-	  | Op_Pushn1 { printf("Op_Pushn1\n"); } 
-	  | Op_Nonnull { printf("Op_Nonnull\n"); }
-	  | Op_Cat { printf("Op_Cat\n"); }  
-	  | Op_Cset DECCONST { printf("Op_Cset\n"); } 
-	  | Op_Init LABEL { printf("Op_Init\n"); }
-	  | Op_Tabmat { printf("Op_Tabmat\n"); }  
-	  | Op_EInit LABEL { printf("Op_EInit\n"); }
-	  | Op_Sdup { printf("Op_Sdup\n"); }
-	  | Op_Numgt { printf("Op_Numgt\n"); }
-	  | Op_Neg { printf("Op_Neg\n"); }
-	  | Op_Coact { printf("Op_Coact\n"); }
-	  | Op_Refresh { printf("Op_Refresh\n"); }
-	  | Op_Psusp { printf("Op_Psusp\n"); }
-	  | Op_Bang { printf("Op_Bang\n"); }
-	  | Op_Null { printf("Op_Null\n"); }
-	  | Op_Eret { printf("Op_Eret\n"); }
-	  | Op_Ccase { printf("Op_Ccase\n"); }
-	  | Op_Eqv { printf("Op_Eqv\n"); }
-	  | Op_Diff { printf("Op_Diff\n"); }
-	  | Op_Numne { printf("Op_Numne\n"); }
-	  | Op_Real DECCONST { printf("Op_Real\n"); }
-	  | Op_Mult { printf("Op_Mult\n"); }
-	  | Op_Div { printf("Op_Div\n"); }
-	  | Op_Mod { printf("Op_Mod\n"); }
-	  | Op_Sect{ printf("Op_Sect\n"); }
-	  | Op_Numge{ printf("Op_Numge\n"); }
-	  | Op_Numle{ printf("Op_Numle\n"); }
-	  | Op_Numle{ printf("Op_Numle\n"); }
-	  | Op_Neqv{ printf("Op_Neqv\n"); }
+//It will process all tokens starting from Proc line.
+Proc :     Op_Proc KEYS { } 
+	  | Op_Local DECCONST COMMA OCTCONST COMMA  KEYS {  }
+	  | Op_Con CON	{  }
+	  | Op_Declend { }
+	  | Op_Filen FILENAME {  }
+	  | Op_Line DECCONST {  }
+	  | Op_Colm DECCONST {  }
+	  | Op_Synt KEYS {  }
+	  | Op_Mark LABEL {  }
+	  | Op_Pnull {  }
+	  | Op_Var DECCONST {  }
+	  | Op_Invoke DECCONST {  }
+	  | Op_Asgn {  }
+	  | Op_Unmark {  }
+	  | Op_Lab LABEL {  } 
+	  | Op_Llist DECCONST {  } 
+	  | Op_Int DECCONST {  } 
+	  | Op_Mark0 {  } 
+	  | Op_Size {  }
+	  | Op_Push1 {  }
+	  | Op_Toby {  }
+	  | Op_Pop {  }
+	  | Op_Subsc {  }
+	  | Op_Dup {  }
+	  | Op_Plus {  }
+          | Op_Goto LABEL {  }
+	  | Op_Str DECCONST {  }
+	  | Op_Lexeq {  }
+	  | Op_Efail {  }
+	  | Op_Pret {  }
+	  | Op_Pfail {  }
+	  | Op_End {  }
+	  | Op_Numlt {  }
+	  | Op_Esusp {  }
+	  | Op_Minus {  }
+	  | Op_Numeq {  }
+	  | Op_Keywd KEYS {  }
+	  | Op_Unions {  }
+          | Op_Bscan {  }
+	  | Op_Escan {  }
+	  | Op_Field KEYS {  }
+	  | Op_Pushn1 {  } 
+	  | Op_Nonnull {  }
+	  | Op_Cat {  }  
+	  | Op_Cset DECCONST {  } 
+	  | Op_Init LABEL {  }
+	  | Op_Tabmat {  }  
+	  | Op_EInit LABEL {  }
+	  | Op_Sdup {  }
+	  | Op_Numgt {  }
+	  | Op_Neg {  }
+	  | Op_Coact {  }
+	  | Op_Refresh {  }
+	  | Op_Psusp {  }
+	  | Op_Bang {  }
+	  | Op_Null {  }
+	  | Op_Eret {  }
+	  | Op_Ccase {  }
+	  | Op_Eqv {  }
+	  | Op_Diff {  }
+	  | Op_Numne {  }
+	  | Op_Real DECCONST {  }
+	  | Op_Mult {  }
+	  | Op_Div {  }
+	  | Op_Mod {  }
+	  | Op_Sect {  }
+	  | Op_Numge {  }
+	  | Op_Numle {  }
+	  | Op_Neqv {  }
+	  | Op_Lexne {  }
+	  | Op_Swap {  }
+	  | Op_Lconcat {  }
+	  | Op_Power {  }
+	  | Op_Lexge {  }
+	  | Op_Number {  }
+	  | Op_Rasgn {  }
+	  | Op_Random {  }
+	  | Op_Coret {  }
+	  | Op_Cofail {  }
+	  | Op_Create LABEL {  }
+	  | Op_Limit {  }
+	  | Op_Lsusp {  }
+	  | Op_Compl {  }
+	  | Op_Lexle { }
+	  | Op_Inter {  }
+	  | Op_Chfail LABEL {  }
+	  | Op_Value {  }
+	  | Op_Lexlt {  }
+	  | Op_Lexgt {  }
 	  ;
-CON:
-	| CON DECCONST
-	| CON OCTCONST
-	| CON COMMA	
-	| CON REALCONST
+
+//Recursive function for CON.
+CON:    | CON DECCONST {  }
+	| CON OCTCONST {  }
+	| CON COMMA	 {  }
+	| CON REALCONST {  }
         ;
 
-KEYS:
-	|  VERSIONSTAMP
-	|  UCODESTAMP
-	|  DECCONST
-	|  COMMA
-	|  OCTCONST
-	|  IDENTIFIER
-	|  CONTROL_L
-	|  REALCONST
-	|  FILENAME
-	|  LABEL
-	|  ANY
-	|  Op_Asgn
-	|  Op_Bang
-	|  Op_Cat
-	|  Op_Compl
-	|  Op_Diff
-	|  Op_Div
-	|  Op_Eqv
-	|  Op_Inter
-	|  Op_Lconcat
-	|  Op_Lexeq
-	|  Op_Lexge
-	|  Op_Lexgt
-	|  Op_Lexle
-	|  Op_Lexlt
-	|  Op_Lexne
-	|  Op_Minus
-	|  Op_Mod
-	|  Op_Mult
-	|  Op_Neg
-	|  Op_Neqv
-	|  Op_Nonnull
-	|  Op_Null
-	|  Op_Number
-	|  Op_Numeq
-	|  Op_Numge
-	|  Op_Numgt
-	|  Op_Numle
-	|  Op_Numlt
-	|  Op_Numne
-	|  Op_Plus
-	|  Op_Power
-	|  Op_Random
-	|  Op_Rasgn
-	|  Op_Rcv
-	|  Op_RcvBk
-	|  Op_Refresh
-	|  Op_Rswap
-	|  Op_Sect
-	|  Op_Snd
-	|  Op_SndBk
-	|  Op_Size
-	|  Op_Subsc
-	|  Op_Swap
-	|  Op_Tabmat
-	|  Op_Toby
-	|  Op_Unions
-	|  Op_Value
-	|  Op_Bscan
-	|  Op_Ccase
-	|  Op_Chfail
-	|  Op_Coact
-	|  Op_Cofail
-	|  Op_Coret
-	|  Op_Create
-	|  Op_Cset
-	|  Op_Dup
-	|  Op_Efail
-	|  Op_EInit
-	|  Op_Eret
-	|  Op_Escan
-	|  Op_Esusp
-	|  Op_Field
-	|  Op_Goto
-	|  Op_Init
-	|  Op_Int
-	|  Op_Invoke
-	|  Op_Keywd
-	|  Op_Limit
-	|  Op_Line
-	|  Op_Llist
-	|  Op_Lsusp
-	|  Op_Mark
-	|  Op_Pfail
-	|  Op_Pnull
-	|  Op_Pop
-	|  Op_Pret
-	|  Op_Psusp
-	|  Op_Push1
-	|  Op_Pushn1
-	|  Op_Real
-	|  Op_Sdup
-	|  Op_Str
-	|  Op_Unmark
-	|  Op_Var
-	|  Op_Arg
-	|  Op_Static
-	|  Op_Local
-	|  Op_Global
-	|  Op_Mark0
-	|  Op_Quit
-	|  Op_FQuit
-	|  Op_Tally
-	|  Op_Apply
-	|  Op_Acset
-	|  Op_Areal
-	|  Op_Astr
-	|  Op_Aglobal
-	|  Op_Astatic
-	|  Op_Agoto
-	|  Op_Amark
-	|  Op_Noop
-	|  Op_Colm
-	|  Op_Proc
-	|  Op_Declend
-	|  Op_End
-	|  Op_Link
-	|  Op_Version
-	|  Op_Con
-	|  Op_Filen
-	|  Op_Record
-	|  Op_Impl
-	|  Op_Error
-	|  Op_Trace
-	|  Op_Lab
-	|  Op_Invocable
-	|  Op_Copyd
-	|  Op_Trapret
-	|  Op_Trapfail
-	|  Op_Synt
-	|  Op_Uid
+//Identifiers and other tokens.
+KEYS:   VERSIONSTAMP {  }
+	|  UCODESTAMP {  }
+	|  IDENTIFIER {  }
+	|  CONTROL_L {  }
+	|  FILENAME {  }
+	|  LABEL {  }
+	|  ANY {  }
+	|  Op_Asgn {  }
+	|  Op_Bang {  }
+	|  Op_Cat {  }
+	|  Op_Compl {  }
+	|  Op_Diff {  }
+	|  Op_Div {  }
+	|  Op_Eqv {  }
+	|  Op_Inter {  }
+	|  Op_Lconcat {  }
+	|  Op_Lexeq {  }
+	|  Op_Lexge {  }
+	|  Op_Lexgt {  }
+	|  Op_Lexle {  }
+	|  Op_Lexlt {  }
+	|  Op_Lexne {  }
+	|  Op_Minus {  }
+	|  Op_Mod {  }
+	|  Op_Mult {  }
+	|  Op_Neg {  }
+	|  Op_Neqv {  }
+	|  Op_Nonnull {  }
+	|  Op_Null {  }
+	|  Op_Number {  }
+	|  Op_Numeq {  }
+	|  Op_Numge {  }
+	|  Op_Numgt {  }
+	|  Op_Numle {  }
+	|  Op_Numlt {  }
+	|  Op_Numne {  }
+	|  Op_Plus {  }
+	|  Op_Power {  }
+	|  Op_Random { ; }
+	|  Op_Rasgn {  }
+	|  Op_Rcv {  }
+	|  Op_RcvBk {  }
+	|  Op_Refresh {  }
+	|  Op_Rswap {  }
+	|  Op_Sect {  }
+	|  Op_Snd {  }
+	|  Op_SndBk {  }
+	|  Op_Size {  }
+	|  Op_Subsc {  }
+	|  Op_Swap {  }
+	|  Op_Tabmat {  }
+	|  Op_Toby {  }
+	|  Op_Unions {  }
+	|  Op_Value {  }
+	|  Op_Bscan {  }
+	|  Op_Ccase {  }
+	|  Op_Chfail {  }
+	|  Op_Coact {  }
+	|  Op_Cofail {  }
+	|  Op_Coret {  }
+	|  Op_Create {  }
+	|  Op_Cset {  }
+	|  Op_Dup {  }
+	|  Op_Efail {  }
+	|  Op_EInit {  }
+	|  Op_Eret {  }
+	|  Op_Escan  {  }
+	|  Op_Esusp {  }
+	|  Op_Field {  }
+	|  Op_Goto {  }
+	|  Op_Init {  }
+	|  Op_Int {  }
+	|  Op_Invoke {  }
+	|  Op_Keywd {  }
+	|  Op_Limit {  }
+	|  Op_Line {  }
+	|  Op_Llist {  }
+	|  Op_Lsusp {  }
+	|  Op_Mark {  }
+	|  Op_Pfail {  }
+	|  Op_Pnull {  }
+	|  Op_Pop {  }
+	|  Op_Pret {  }
+	|  Op_Psusp {  }
+	|  Op_Push1 {  }
+	|  Op_Pushn1 {  }
+	|  Op_Real {  }
+	|  Op_Sdup {  }
+	|  Op_Str {  }
+	|  Op_Unmark {  }
+	|  Op_Var {  }
+	|  Op_Arg {  }
+	|  Op_Static {  }
+	|  Op_Local {  }
+	|  Op_Global {  }
+	|  Op_Mark0 {  }
+	|  Op_Quit {  }
+	|  Op_FQuit {  }
+	|  Op_Tally {  }
+	|  Op_Apply {  }
+	|  Op_Acset {  }
+	|  Op_Areal {  }
+	|  Op_Astr {  }
+	|  Op_Aglobal { }
+	|  Op_Astatic {  }
+	|  Op_Agoto {  }
+	|  Op_Amark {  }
+	|  Op_Noop {  }
+	|  Op_Colm {  }
+	|  Op_Proc {  }
+	|  Op_Declend {  }
+	|  Op_End {  }
+	|  Op_Link {  }
+	|  Op_Version {  }
+	|  Op_Con {  }
+	|  Op_Filen {  } 
+	|  Op_Record {  }
+	|  Op_Impl {  }
+	|  Op_Error {  }
+	|  Op_Trace {  }
+	|  Op_Lab {  }
+	|  Op_Invocable {  }
+	|  Op_Copyd {  }
+	|  Op_Trapret {  }
+	|  Op_Trapfail {  }
+	|  Op_Synt {  }
+	|  Op_Uid {  }
 	;
 %%
