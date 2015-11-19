@@ -11,7 +11,7 @@ extern FILE *yyin;
 extern char *yytext;
 char *yyfilename;
 
-char *getFileFormat( char* file){ //Returns the first character after "."
+char *getFileFormat( char* file){ //Returns the file extension
 	char* ext = strrchr(file, '.');
 
 	return ext;
